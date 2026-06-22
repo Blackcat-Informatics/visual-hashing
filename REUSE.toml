@@ -1,0 +1,20 @@
+version = 1
+SPDX-PackageName = "visual-hashing"
+SPDX-PackageSupplier = "Blackcat Informatics® Inc. <paudley@blackcatinformatics.ca>"
+SPDX-PackageDownloadLocation = "https://github.com/Blackcat-Informatics/visual-hashing"
+
+[[annotations]]
+path = [
+  "Cargo.lock",
+  "CITATION.cff",
+  ".gitignore",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 Blackcat Informatics® Inc. <paudley@blackcatinformatics.ca>"
+SPDX-License-Identifier = "MIT OR Apache-2.0"
+
+[[annotations]]
+path = "vectors/**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 Blackcat Informatics® Inc. <paudley@blackcatinformatics.ca>"
+SPDX-License-Identifier = "MIT OR Apache-2.0"

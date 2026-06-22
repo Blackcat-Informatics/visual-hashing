@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use visual-hashing, please cite it as below."
+title: "visual-hashing"
+abstract: >-
+  Human-friendly visual fingerprints for keys and checksums: a stable
+  64-symbol BLAKE3-XOF emojihash and OpenSSH-style randomart renderer.
+type: software
+authors:
+  - name: "Blackcat Informatics® Inc."
+    website: "https://blackcatinformatics.ca/"
+  - family-names: "Audley"
+    given-names: "Patrick"
+    orcid: "https://orcid.org/0000-0003-4382-7625"
+version: "0.1.3"
+date-released: "2026-06-22"
+license:
+  - Apache-2.0
+  - MIT
+repository-code: "https://github.com/Blackcat-Informatics/visual-hashing"
+keywords:
+  - blake3
+  - emoji
+  - fingerprint
+  - randomart
+  - visualization
