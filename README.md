@@ -1,12 +1,12 @@
 <!--
 SPDX-FileCopyrightText: 2026 Blackcat Informatics® Inc. <paudley@blackcatinformatics.ca>
-SPDX-License-Identifier: MIT OR Apache-2.0
+SPDX-License-Identifier: MIT OR Apache-2.0 OR MulanPSL-2.0
 -->
 # visual-hashing
 
 [![crates.io](https://img.shields.io/crates/v/visual-hashing.svg)](https://crates.io/crates/visual-hashing)
 [![docs.rs](https://docs.rs/visual-hashing/badge.svg)](https://docs.rs/visual-hashing)
-[![License](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue.svg)](#license)
+[![License](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0%20OR%20MulanPSL--2.0-blue.svg)](#license)
 
 **Human-friendly visual fingerprints** for keys, checksums, and any byte string you
 need a person to compare out-of-band — the *"is this the right key?"* glance.
@@ -141,6 +141,16 @@ portable beyond Rust.
 
 ## License
 
-Licensed under either of [MIT](https://github.com/Blackcat-Informatics/visual-hashing/blob/main/LICENSE-MIT)
-or [Apache-2.0](https://github.com/Blackcat-Informatics/visual-hashing/blob/main/LICENSE-APACHE)
-at your option. © Blackcat Informatics® Inc.
+Licensed under any one of
+[MIT](https://github.com/Blackcat-Informatics/visual-hashing/blob/main/LICENSE-MIT),
+[Apache-2.0](https://github.com/Blackcat-Informatics/visual-hashing/blob/main/LICENSE-APACHE), or
+[MulanPSL-2.0](https://github.com/Blackcat-Informatics/visual-hashing/blob/main/LICENSE-MULAN),
+at your option — pick one and comply with that one.
+
+Note that MulanPSL-2.0 is published in Chinese and English, and that **its §6
+makes the Chinese version controlling** where the two diverge. See
+[LICENSING.md](https://github.com/Blackcat-Informatics/visual-hashing/blob/main/LICENSING.md)
+for what differs between the three and for the vector and third-party
+provenance.
+
+© Blackcat Informatics® Inc.
