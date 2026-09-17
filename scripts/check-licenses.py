@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-FileCopyrightText: 2026 Blackcat Informatics® Inc. <paudley@blackcatinformatics.ca>
-# SPDX-License-Identifier: MIT OR Apache-2.0
+# SPDX-License-Identifier: MIT OR Apache-2.0 OR MulanPSL-2.0
 """Enforce this repository's licensing claims instead of asserting them.
 
 Four things are checked, each of which has quietly drifted in real projects:
@@ -30,7 +30,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-EXPECTED_SPDX = "MIT OR Apache-2.0"
+EXPECTED_SPDX = "MIT OR Apache-2.0 OR MulanPSL-2.0"
 """The SPDX expression every first-party file must declare."""
 
 LICENSE_PAIRS = {

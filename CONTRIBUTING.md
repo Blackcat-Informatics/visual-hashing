@@ -1,6 +1,6 @@
 <!--
 SPDX-FileCopyrightText: 2026 Blackcat Informatics® Inc. <paudley@blackcatinformatics.ca>
-SPDX-License-Identifier: MIT OR Apache-2.0
+SPDX-License-Identifier: MIT OR Apache-2.0 OR MulanPSL-2.0
 -->
 # Contributing to visual-hashing
 
@@ -36,4 +36,7 @@ still pass byte-for-byte.
 The vector scripts live under `python/scripts/`. Regenerate vectors only when
 the public rendering contract intentionally changes, then review the JSON diff.
 
-Contributions are accepted under **Apache-2.0 OR MIT**.
+Contributions are accepted under **MIT OR Apache-2.0 OR MulanPSL-2.0**. By
+contributing, you agree that your contribution may be distributed under any of
+the three. See [LICENSING.md](LICENSING.md) for what the three grants differ on
+— in particular that MulanPSL-2.0 is bilingual and its Chinese text prevails.
