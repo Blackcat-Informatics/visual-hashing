@@ -57,6 +57,50 @@ It was taken from the SPDX license-list-data mirror because the canonical host
 `scripts/check-licenses.py` re-verifies the digest on every CI run, so the text
 cannot drift without the build noticing.
 
+## 中文说明（许可证摘要）
+
+> 本节为便利性摘要，**不构成许可授权**。授权以 `LICENSE-MIT`、`LICENSE-APACHE`
+> 及 `LICENSE-MULAN` 三份许可证文本为准；本摘要如与许可证文本不一致，以许可证
+> 文本为准。
+
+`visual-hashing` 以下列三种开源许可证提供：
+
+```text
+MIT OR Apache-2.0 OR MulanPSL-2.0
+```
+
+`OR` 意为「任选其一」：您选定其中一种后，只需遵守该种许可证，不受另外两种约束，
+也无需另行取得许可。
+
+三者的主要差异：
+
+| | MIT | Apache-2.0 | 木兰宽松许可证，第2版 |
+|---|---|---|---|
+| 明示专利许可 | 无 | 有 | 有（第2条） |
+| 提起专利诉讼即终止专利许可 | — | 是 | 是（第2条） |
+| 明示商标许可 | 未涉及 | 明确排除 | 明确排除（第3条） |
+| 须声明文件已被修改 | 否 | 是 | 否 |
+| 文本语言 | 英文 | 英文 | 中英文双语，**以中文版为准** |
+
+木兰宽松许可证第6条规定：「本许可证」以中英文双语表述，中英文版本具有同等法律
+效力；如果中英文版本存在任何冲突不一致，**以中文版为准**。因此，阅读英文本的
+使用者应注意英文本并非最终依据。
+
+第4条要求：您在任何媒介中重新分发本软件时，必须向接收者提供「本许可证」的副本，
+并保留软件中的版权、商标、专利及免责声明。
+
+本仓库所附的 `LICENSE-MULAN`（副本位于 `LICENSES/MulanPSL-2.0.txt`）为官方中英文
+双语文本，并以 SHA-256 摘要固定（见上文 *The text we ship*）；持续集成在每次运行
+时重新校验该摘要，以确保文本未被改动。
+
+**运行时依赖**：本库没有任何运行时依赖，因此使用本库不会引入第三方的声明义务。
+
+**商标**：Blackcat Informatics® Inc. 为本项目名称及商标的唯一所有人。上述三种
+许可证均未授予商标权利。允许「兼容 visual-hashing」一类的指称性使用；不得用于
+暗示背书。
+
+中文咨询请访问 <https://blackcatinformatics.cn>。
+
 ## Third-party material
 
 **The library has no runtime dependencies at all.** Nothing third-party is

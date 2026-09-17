@@ -151,6 +151,6 @@ Note that MulanPSL-2.0 is published in Chinese and English, and that **its §6
 makes the Chinese version controlling** where the two diverge. See
 [LICENSING.md](https://github.com/Blackcat-Informatics/visual-hashing/blob/main/LICENSING.md)
 for what differs between the three and for the vector and third-party
-provenance.
+provenance — it includes a 中文说明 summarising the grant in Chinese.
 
 © Blackcat Informatics® Inc.
