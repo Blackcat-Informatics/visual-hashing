@@ -111,10 +111,14 @@ space for unvisited cells); the start and end squares are marked `S` and `E`.
 
 ## Stability
 
-The 64-emoji alphabet and the randomart character ramp are a **wire contract**: once
-`1.0` ships they will not change, because a fingerprint that renders differently across
-versions is worse than useless. Pre-`1.0` the alphabet is considered stable but reserves
-the right to fix outright mistakes.
+The 64-emoji alphabet and the randomart character ramp are a **wire contract**, and as
+of `1.0` that contract is binding: they will not change, because a fingerprint that
+renders differently across versions is worse than useless. A change to either would be
+a new crate, not a new major version — anything already printed in a log, a CLI banner
+or a user's notes has to keep meaning what it meant.
+
+The API is frozen on the same terms. Vectors under `vectors/` pin both renderings
+byte-for-byte, and CI fails on any drift.
 
 **No dependencies.** Not a short list — none. The crate carries its own one-shot
 BLAKE3 (`src/blake3.rs`), so there is no build script, no C compiler and nothing

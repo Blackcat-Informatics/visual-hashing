@@ -8,7 +8,7 @@ All notable changes to `visual-hashing` are recorded here.
 
 ## [Unreleased]
 
-## [0.9.0] - 2026-09-17
+## [1.0.0] - 2026-09-17
 
 ### Added
 
@@ -41,12 +41,25 @@ All notable changes to `visual-hashing` are recorded here.
 - The `serde_json` dev-dependency, replaced by a strict reader for the
   generated vector format.
 
+### Stability
+
+`1.0` makes the wire contract binding. The 64-emoji alphabet, the randomart
+character ramp and the public API will not change: a fingerprint already
+printed in a log, a CLI banner or a user's notes has to keep meaning what it
+meant, so a change to either rendering would be a new crate rather than a new
+major version.
+
 ### Note for existing users
 
-`0.1.3 → 0.9.0` is a semver-incompatible jump for a `0.x` crate, so a
-`visual-hashing = "0.1.3"` requirement will **not** pick this up; update the
-requirement deliberately. The public API is unchanged and all renderings are
-byte-identical.
+`0.1.3 → 1.0.0` is a semver-incompatible jump, so a `visual-hashing = "0.1.3"`
+requirement will **not** pick this up — for a `0.x` crate the minor slot is the
+breaking one, giving `>=0.1.3, <0.2.0`. Update the requirement to
+`visual-hashing = "1"` deliberately.
+
+Nothing about the output changed: the public API is identical and every
+rendering is byte-for-byte the same, as the frozen vectors demonstrate. What
+changed is the shape of the crate around it — no runtime dependencies, no build
+script, `no_std`, and a third licence option.
 
 ## [0.1.3] - 2026-06-22
 
