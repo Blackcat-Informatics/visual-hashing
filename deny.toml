@@ -1,0 +1,41 @@
+# SPDX-FileCopyrightText: 2026 Blackcat Informatics® Inc. <paudley@blackcatinformatics.ca>
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
+# Supply-chain and licence gate. The library itself has no runtime
+# dependencies (scripts/check-licenses.py enforces that separately); everything
+# audited here reaches the tree through dev-dependencies, which consumers never
+# build. They are still checked, because they are what CI executes.
+
+[graph]
+all-features = true
+
+[licenses]
+# Every licence below was read from the dependency manifests, not assumed. The
+# list is deliberately short: an addition should require someone to look at the
+# new crate and decide, rather than pass silently.
+allow = [
+    "MIT",                            # most of the tree
+    "Apache-2.0",                     # most of the tree
+    "MulanPSL-2.0",                   # this crate's third disjunct
+    "Apache-2.0 WITH LLVM-exception", # blake3
+    "CC0-1.0",                        # blake3, constant_time_eq
+    "BSD-2-Clause",                   # arrayref
+]
+confidence-threshold = 0.93
+
+# A disjunct that never gets selected is not a problem: an `A OR B` dependency
+# matches whichever entry comes first, and MulanPSL-2.0 is offered by this
+# crate rather than required of anything in the graph.
+unused-allowed-license = "allow"
+
+[bans]
+multiple-versions = "deny"
+wildcards = "deny"
+
+[advisories]
+yanked = "deny"
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]

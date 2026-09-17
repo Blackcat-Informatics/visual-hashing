@@ -30,7 +30,7 @@ jobs:
         uses: dtolnay/rust-toolchain@29eef336d9b2848a0b548edc03f92a220660cdb8 # stable
         with:
           components: clippy, rustfmt
-          targets: wasm32-unknown-unknown
+          targets: wasm32-unknown-unknown, thumbv7em-none-eabihf
 
       - name: Cache Cargo dependencies
         uses: Swatinem/rust-cache@c19371144df3bb44fab255c43d04cbc2ab54d1c4 # v2.9.1
@@ -56,6 +56,39 @@ jobs:
         if: runner.os == 'Linux'
         run: cargo build --lib --target wasm32-unknown-unknown
 
+      # Proves the `no_std` claim on a target that has no `std` to fall back on.
+      - name: Bare-metal library build
+        if: runner.os == 'Linux'
+        run: cargo build --lib --target thumbv7em-none-eabihf
+
       - name: Package dry-run
         if: runner.os == 'Linux'
         run: cargo publish --locked --dry-run
+
+  licensing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@29eef336d9b2848a0b548edc03f92a220660cdb8 # stable
+
+      - name: Cache Cargo dependencies
+        uses: Swatinem/rust-cache@c19371144df3bb44fab255c43d04cbc2ab54d1c4 # v2.9.1
+
+      # SPDX headers, licence-text digests, and the no-runtime-dependencies
+      # claim. Kept as a first-party script rather than a third-party action:
+      # every action here is SHA-pinned, and adding one to run a grep would
+      # widen the supply chain for no gain.
+      - name: License and dependency claims
+        run: python3 scripts/check-licenses.py
+
+      - name: Install cargo-deny
+        uses: taiki-e/install-action@76c2e6406e52637deed7160d77bded76bd83e06e # v2.87.14
+        with:
+          tool: cargo-deny
+
+      - name: Dependency licences, advisories and sources
+        run: cargo deny check
