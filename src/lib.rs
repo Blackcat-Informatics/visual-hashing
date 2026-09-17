@@ -23,7 +23,20 @@
 //!
 //! Both renderings are byte-for-byte deterministic and gated by a frozen
 //! conformance corpus, so independent implementations agree exactly.
+//!
+//! The crate has **no runtime dependencies** and needs only `alloc`, so it
+//! works anywhere you can allocate a `String` — including `no_std` targets and
+//! wasm.
 
+#![no_std]
+#![forbid(unsafe_code)]
+
+extern crate alloc;
+
+#[cfg(test)]
+extern crate std;
+
+mod blake3;
 mod emojihash;
 mod randomart;
 

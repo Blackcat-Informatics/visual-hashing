@@ -116,8 +116,19 @@ The 64-emoji alphabet and the randomart character ramp are a **wire contract**: 
 versions is worse than useless. Pre-`1.0` the alphabet is considered stable but reserves
 the right to fix outright mistakes.
 
-The only dependency is [`blake3`](https://crates.io/crates/blake3). No `unsafe`, no I/O,
-`wasm32`-friendly.
+**No dependencies.** Not a short list — none. The crate carries its own one-shot
+BLAKE3 (`src/blake3.rs`), so there is no build script, no C compiler and nothing
+transitive to audit in a crate you are embedding next to key material. It is
+`#![forbid(unsafe_code)]`, `no_std` + `alloc`, does no I/O, and builds for
+`wasm32` and bare-metal targets unchanged.
+
+That implementation is not taken on trust: the upstream
+[`blake3`](https://crates.io/crates/blake3) crate is kept as a *dev*-dependency
+purely as an oracle, and `tests/blake3_equivalence.rs` diffs the two across every
+block, chunk and subtree boundary on each CI run. Published known-answer vectors
+are pinned separately, so agreement is checked against a fixed external answer
+too. Being portable rather than SIMD, it is built for auditability over
+throughput — the right trade for fingerprinting keys and checksums.
 
 ## Provenance
 

@@ -8,6 +8,10 @@
 //! The counts are rendered through a character ramp; the start and end squares
 //! are marked `S` and `E`. This is a byte-for-byte port of the Python reference.
 
+use alloc::format;
+use alloc::string::{String, ToString};
+use alloc::vec::Vec;
+
 const WIDTH: usize = 17;
 const HEIGHT: usize = 9;
 

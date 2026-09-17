@@ -7,6 +7,10 @@
 //! alphabet that favours common animals and then familiar foods over abstract,
 //! confusable symbols — a fingerprint only helps if a human can read it back.
 
+use alloc::string::String;
+use alloc::vec;
+use alloc::vec::Vec;
+
 /// The 64-entry emoji alphabet (a 6-bit digit set).
 pub const EMOJI: [&str; 64] = [
     "🐵", "🐶", "🐺", "🦊", "🐱", "🦁", "🐯", "🐴", "🦄", "🦓", "🦌", "🐮", "🐷", "🐗", "🐭", "🐹",
@@ -91,10 +95,7 @@ pub fn emoji_indices(data: &[u8], length: usize) -> Vec<usize> {
     let wanted = length.max(1);
     let nbytes = (wanted * 6).div_ceil(8);
     let mut digest = vec![0u8; nbytes];
-    blake3::Hasher::new()
-        .update(data)
-        .finalize_xof()
-        .fill(&mut digest);
+    crate::blake3::hash_xof(data, &mut digest);
 
     let mut out = Vec::with_capacity(wanted);
     let mut acc: u64 = 0;

@@ -28,9 +28,8 @@ include = [
     "vectors/randomart/*.json",
 ]
 
-[dependencies]
-# the only dependency: emojihash slices a BLAKE3-XOF digest into 6-bit symbols
-blake3 = "1"
-
 [dev-dependencies]
-serde_json = "1"
+# Not a dependency of the library: the upstream implementation is kept as an
+# oracle so `tests/blake3_equivalence.rs` can prove that `src/blake3.rs` agrees
+# with it byte for byte. Dev-dependencies are never built by consumers.
+blake3 = "1"
