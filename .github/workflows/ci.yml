@@ -86,7 +86,7 @@ jobs:
         run: python3 scripts/check-licenses.py
 
       - name: Install cargo-deny
-        uses: taiki-e/install-action@76c2e6406e52637deed7160d77bded76bd83e06e # v2.87.14
+        uses: taiki-e/install-action@ab6895351a88b908e96a4697860d4ffea5e57dbe # v2.87.27
         with:
           tool: cargo-deny
 
